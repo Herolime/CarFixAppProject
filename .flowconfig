@@ -11,13 +11,19 @@ node_modules/react-native/Libraries/polyfills/.*
 ; These should not be required directly
 ; require from fbjs/lib instead: require('fbjs/lib/warning')
 node_modules/*
-
 ; Flow doesn't support platforms
 .*/Libraries/Utilities/LoadingView.js
 
 [untyped]
 .*/node_modules/@react-native-community/cli/.*/.*
-
+.*/node_modules/react-native/Libraries/Animated/src/AnimatedImplementation.js
+.*/node_modules/react-native/Libraries/Components/Touchable/Touchable.js
+.*/node_modules/react-native/Libraries/Lists/FlatList.js
+.*/node_modules/react-native/Libraries/Lists/VirtualizedList.js
+.*/node_modules/react-native/Libraries/Modal/Modal.js
+.*/node_modules/react-native/Libraries/PermissionsAndroid/PermissionsAndroid.js
+.*/node_modules/react-native/Libraries/ReactNative/PaperUIManager.js
+.*/node_modules/react-native/Libraries/Utilities/registerGeneratedViewConfig.js
 [include]
 
 [libs]
