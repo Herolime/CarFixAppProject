@@ -3,4 +3,8 @@ module.exports = {
   jsxBracketSameLine: true,
   singleQuote: true,
   trailingComma: 'all',
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended'
+  ]
 };
