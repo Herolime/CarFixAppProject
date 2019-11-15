@@ -11,6 +11,13 @@ const styles = StyleSheet.create({
   body: {
     backgroundColor: Colors.white,
   },
+  Text: {
+    fontFamily: 'Nunito-ExtraBold',
+    fontSize: 16,
+  },
+  Button: {
+    fontFamily: 'Nunito-ExtraBold',
+  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
@@ -36,6 +43,34 @@ const styles = StyleSheet.create({
     padding: 4,
     paddingRight: 12,
     textAlign: 'right',
+  },
+  fontSizeOne: {
+    fontSize: 28,
+  },
+  fontSizeTwo: {
+    fontSize: 20,
+  },
+  fontSizeSubtitle: {
+    fontSize: 12,
+  },
+  fontColorPrincipal: {
+    color: '#FFFFFF', //white
+  },
+  fontColorSecondary: {
+    color: '#1D2126', //black
+  },
+  fontColorSelected: {
+    color: '#FE9E1C', //Orange
+  },
+  buttonPrimaryBackground: {
+    backgroundColor: '#FE9E1C', //Orange
+  },
+  buttonSecondaryBackground: {
+    backgroundColor: '#1D2126', //black
+  },
+  largeButton: {
+    width: 335,
+    height: 52,
   },
 });
 
