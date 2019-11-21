@@ -90,18 +90,20 @@ const styles = StyleSheet.create({
   },
   drawerIcon: {
     backgroundColor: 'white',
-    width: 60,
-    height: 60,
-    alignItems: 'center',
+    width: 35,
+    height: 35,
+    alignItems: 'baseline',
     justifyContent: 'center',
-    borderStartWidth: 10,
+    marginLeft: 2,
+    marginTop: 6,
   },
   CalendarIcon: {
     backgroundColor: 'white',
-    width: 55,
-    height: 55,
+    width: 30,
+    height: 30,
     alignItems: 'center',
     justifyContent: 'center',
+    marginRight: 4,
   },
 });
 
