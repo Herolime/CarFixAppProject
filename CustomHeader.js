@@ -1,5 +1,7 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, ImageBackground, Image, TouchableOpacity} from 'react-native';
+import {Icon} from 'react-native-elements';
+// eslint-disable-next-line no-unused-vars
 import styles from './main-styles';
 
 class CustomHeader extends React.Component {
@@ -7,7 +9,26 @@ class CustomHeader extends React.Component {
     super(props);
   }
   render() {
-    return <View style={styles.headerStyle} />;
+    return (
+      <View style={styles.headerFlex}>
+        <Icon
+          name="menu"
+          size={30}
+          style={styles.drawerIcon}
+          onPress={() => console.log('hello')}
+        />
+        <ImageBackground
+          source={require('./assets/hardware-icon-9.png')}
+          style={styles.headerIcon}
+        />
+        <Icon
+          name="icon"
+          type="ionicon"
+          style={styles.drawerIcon}
+          onPress={() => console.log('hello')}
+        />
+      </View>
+    );
   }
 }
 

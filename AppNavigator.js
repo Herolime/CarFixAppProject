@@ -2,7 +2,13 @@ import React from 'react';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import Placeholder from './Placeholder';
+import CustomHeader from './CustomHeader';
+
 class MainScreen extends React.Component {
+  static navigationOptions = {
+    // headerTitle instead of title
+    headerTitle: () => <CustomHeader />,
+  };
   constructor(props) {
     super(props);
   }
@@ -23,6 +29,7 @@ const AppNavigator = createStackNavigator(
   },
   {
     initialRouteName: 'Main',
+    headerTitle: () => <CustomHeader />,
   },
 );
 

@@ -1,5 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import React from 'react';
+
 const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: Colors.lighter,
@@ -71,6 +73,35 @@ const styles = StyleSheet.create({
   largeButton: {
     width: 335,
     height: 52,
+  },
+  headerFlex: {
+    flex: 3,
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  headerIcon: {
+    backgroundColor: 'white',
+    width: 55,
+    height: 55,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  drawerIcon: {
+    backgroundColor: 'white',
+    width: 60,
+    height: 60,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderStartWidth: 10,
+  },
+  CalendarIcon: {
+    backgroundColor: 'white',
+    width: 55,
+    height: 55,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
