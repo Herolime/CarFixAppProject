@@ -3,6 +3,7 @@ import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import MainMenu from './MainMenu';
 import LocateTrailer from './LocateTrailer';
+import NavigationService from './NavigationService';
 
 class MainScreen extends React.Component {
   constructor(props) {
@@ -11,9 +12,7 @@ class MainScreen extends React.Component {
 
   render() {
     return (
-      <MainMenu
-        onHandlePress={() => this.props.navigation.navigate('Locate')}
-      />
+      <MainMenu onHandlePress={() => NavigationService.navigate('Locate')} />
     );
   }
 
