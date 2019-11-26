@@ -12,14 +12,14 @@ import {Button} from 'react-native-elements';
 class MainMenu extends React.Component {
   constructor(props) {
     super(props);
-    this.handlePress = this.props.onHandlePress
+    this.handlePress = !!this.props.onHandlePress
       ? this.props.onHandlePress
       : () => {};
   }
 
   render() {
     return (
-      <View style={{height: '100%', width: '100%'}}>
+      <View style={MainMenuStyles.View}>
         <ImageBackground
           style={{flex: 43}}
           source={require('./assets/car-repairs-1_640x420.jpg')}>
