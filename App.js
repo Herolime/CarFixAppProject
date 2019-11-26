@@ -9,11 +9,18 @@
 import React from 'react';
 import {createAppContainer} from 'react-navigation';
 import AppNavigator from './AppNavigator';
+import NavigationService from './NavigationService';
 
 const AppContainer = createAppContainer(AppNavigator);
 
 const App: () => React$Node = () => {
-  return <AppContainer />;
+  return (
+    <AppContainer
+      ref={navigatorRef => {
+        NavigationService.setTopLevelNavigator(navigatorRef);
+      }}
+    />
+  );
 };
 
 export default App;
