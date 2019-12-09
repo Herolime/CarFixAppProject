@@ -15,11 +15,16 @@ class MainScreen extends React.Component {
       <MainMenu onHandlePress={() => NavigationService.navigate('Locate')} />
     );
   }
+}
 
-  // Example code for Navigation
-  //   navigateToDetails() {
-  //     this.props.navigation.navigate('Details');
-  //   }
+class LocationScreen extends React.Component {
+  render() {
+    return (
+      <LocateTrailer
+        onHandlePress={() => NavigationService.navigate('Service')}
+      />
+    );
+  }
 }
 
 class LocationScreen extends React.Component {
@@ -32,6 +37,7 @@ const AppNavigator = createStackNavigator(
   {
     Main: MainScreen,
     Locate: LocationScreen,
+    Service: SelectServiceScreen,
   },
   {
     initialRouteName: 'Main',
