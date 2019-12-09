@@ -4,6 +4,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 import MainMenu from './MainMenu';
 import LocateTrailer from './LocateTrailer';
 import NavigationService from './NavigationService';
+import SelectService from './SelectService';
 
 class MainScreen extends React.Component {
   constructor(props) {
@@ -15,16 +16,21 @@ class MainScreen extends React.Component {
       <MainMenu onHandlePress={() => NavigationService.navigate('Locate')} />
     );
   }
-
-  // Example code for Navigation
-  //   navigateToDetails() {
-  //     this.props.navigation.navigate('Details');
-  //   }
 }
 
 class LocationScreen extends React.Component {
   render() {
-    return <LocateTrailer />;
+    return (
+      <LocateTrailer
+        onHandlePress={() => NavigationService.navigate('Service')}
+      />
+    );
+  }
+}
+
+class SelectServiceScreen extends React.Component {
+  render() {
+    return <SelectService />;
   }
 }
 
@@ -32,6 +38,7 @@ const AppNavigator = createStackNavigator(
   {
     Main: MainScreen,
     Locate: LocationScreen,
+    Service: SelectServiceScreen,
   },
   {
     initialRouteName: 'Main',

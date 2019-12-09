@@ -29,6 +29,7 @@ class LocateTrailer extends React.Component {
       nearShopLoaded: false,
     };
     this.handleButtonPress = this.handleButtonPress.bind(this);
+    this.onHandlePress = this.props.onHandlePress;
   }
 
   handleButtonPress() {
@@ -42,7 +43,8 @@ class LocateTrailer extends React.Component {
     const shopsNearby = this.state.nearShops.map(shop => (
       <TouchableOpacity
         style={LocateTrailerStyles.TouchableOpacity}
-        key={shop.id}>
+        key={shop.id}
+        onPress={this.onHandlePress}>
         <Image
           style={{flex: 1, width: 78, height: 43}}
           source={require('./assets/car-ford-falcon-gear-stick-manual-transmission-car-pieces.jpg')}
