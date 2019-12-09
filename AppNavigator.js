@@ -4,6 +4,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 import MainMenu from './MainMenu';
 import LocateTrailer from './LocateTrailer';
 import NavigationService from './NavigationService';
+import SelectService from './SelectService';
 
 class MainScreen extends React.Component {
   constructor(props) {
@@ -27,9 +28,9 @@ class LocationScreen extends React.Component {
   }
 }
 
-class LocationScreen extends React.Component {
+class SelectServiceScreen extends React.Component {
   render() {
-    return <LocateTrailer />;
+    return <SelectService />;
   }
 }
 
