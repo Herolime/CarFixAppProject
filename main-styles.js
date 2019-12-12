@@ -84,6 +84,19 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 3,
   },
+  optionCard: {
+    backgroundColor: '#FFFFFF',
+    flexDirection: 'row',
+    width: 335,
+    height: 52,
+    borderRadius: 4,
+    marginBottom: 25,
+    shadowColor: '#000000',
+    shadowOffset: {width: 2, height: 2},
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    alignItems: 'center',
+  }
 });
 
 export default styles;
