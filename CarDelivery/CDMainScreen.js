@@ -15,6 +15,7 @@ class CarDelivery extends React.Component {
     };
     this.handleGroupPress = this.handleGroupPress.bind(this);
     this.getDates = this.getDates.bind(this);
+    this.handleButtonPress = this.handleButtonPress.bind(this);
   }
 
   handleGroupPress(index) {
@@ -46,6 +47,13 @@ class CarDelivery extends React.Component {
         },
       ],
     });
+  }
+
+  handleButtonPress() {
+    if (this.state.selectedIndex > 0) {
+      //Logica para comprobar que una fecha de reserva haya sido elegida
+    }
+    this.props.navigateTo();
   }
 
   render() {
