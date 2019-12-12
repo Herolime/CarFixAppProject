@@ -37,14 +37,15 @@ class SelectService extends React.Component {
   }
 
   handlePress(id) {
-    // const services = this.state.availableServices;
-    // this.setState({
-    //   availableServices: services.map(serv => {
-    //     if (serv.id === id) {
-    //       serv = {...serv, selected: true};
-    //     }
-    //   }),
-    // });
+    const services = this.state.availableServices.map(serv =>
+      serv.id === id
+        ? {...serv, selected: !serv.selected}
+        : {...serv, selected: false},
+    );
+    this.setState({
+      ...this.state,
+      availableServices: services,
+    });
   }
 
   render() {
@@ -61,7 +62,7 @@ class SelectService extends React.Component {
             <Icon
               name="check-circle"
               size={15}
-              color={service.selected ? 'black' : 'gray'}
+              color={service.selected ? '#FE9E1C' : 'gray'}
             />
           </Text>
         </View>
