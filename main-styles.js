@@ -78,6 +78,12 @@ const styles = StyleSheet.create({
     width: 335,
     height: 52,
   },
+  defaultShadow: {
+    shadowColor: '#000000',
+    shadowOffset: {width: 2, height: 2},
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+  },
 });
 
 export default styles;
