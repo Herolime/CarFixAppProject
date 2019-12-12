@@ -53,7 +53,14 @@ class CarDeliveryScreen extends React.Component {
 
 class ConfirmationScreen extends React.Component {
   render() {
-    return <OrderConfirmation />;
+    return (
+      <OrderConfirmation
+        navigateTo={() => NavigationService.navigate('Payment')}
+      />
+    );
+  }
+}
+
 class PaymentScreen extends React.Component {
   render() {
     return (<PaymentMethod />);
