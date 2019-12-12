@@ -18,6 +18,12 @@ const styles = StyleSheet.create({
   Button: {
     fontFamily: 'Nunito-ExtraBold',
   },
+  TextInput: {
+    backgroundColor: '#FFFFFF',
+    height: 60,
+    width: 343,
+    borderRadius: 5,
+  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
