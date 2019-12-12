@@ -115,13 +115,11 @@ const SelectServiceStyles = StyleSheet.create({
   },
   TouchableOpacity: {
     backgroundColor: '#FFFFFF',
-    // flex: 1,
     flexDirection: 'row',
     width: 335,
     height: 52,
     borderRadius: 4,
     marginBottom: 25,
-    // borderColor: '#1D2126',
     shadowColor: '#000000',
     shadowOffset: {width: 2, height: 2},
     shadowOpacity: 0.3,

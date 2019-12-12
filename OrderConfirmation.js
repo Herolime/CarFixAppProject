@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import styles from './main-styles';
 import {Button, Card, Divider} from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 
 class OrderConfirmation extends React.Component {
   constructor(props) {
@@ -17,6 +16,7 @@ class OrderConfirmation extends React.Component {
     this.state = {
       observation: 'E.g: Motor sensible, objetos dejados en el vehículo, etc',
     };
+    this.handleButtonPress = () => this.props.navigateTo();
   }
 
   render() {
@@ -66,8 +66,7 @@ class OrderConfirmation extends React.Component {
           containerStyle={confirmationStyles.estimationCard}
           titleStyle={[styles.fontColorPrincipal, styles.fontSizeTwo]}>
           <Text style={styles.fontColorSelected}>
-            {' '}
-            19 / 12 / 2019 06:50:00 PM en:{' '}
+            19 / 12 / 2019 06:50:00 PM en:
           </Text>
           <Text style={styles.fontColorPrincipal}>Taller Seleccionado</Text>
         </Card>
@@ -84,28 +83,31 @@ class OrderConfirmation extends React.Component {
         </View>
         <View style={confirmationStyles.services}>
           <Text style={[styles.fontSizeTwo]}> Servicio </Text>
-          <Card containerStyle={confirmationStyles.serviceDetail, styles.defaultShadow}>
-          <Text> Mantenimiento regular </Text>
-          <View style={{flexDirection: 'row-reverse', flex: 1, margin: 10}}>
-           <View style={{flex: 1, flexDirection: 'column'}}>
-           <Text>
-           Detalles del Servicio
-           </Text>
-           </View>
-           <Image
-          style={{flex: 1, width: 78, height: 43}}
-          source={require('./assets/car-ford-falcon-gear-stick-manual-transmission-car-pieces.jpg')}
-          />
-          </View>
-          <Text style={[styles.fontColorSelected, {alignSelf: 'flex-end'}]}> 520 DOP</Text>
+          <Card
+            containerStyle={
+              (confirmationStyles.serviceDetail, styles.defaultShadow)
+            }>
+            <Text> Mantenimiento regular </Text>
+            <View style={{flexDirection: 'row-reverse', flex: 1, margin: 10}}>
+              <View style={{flex: 1, flexDirection: 'column'}}>
+                <Text>Detalles del Servicio</Text>
+              </View>
+              <Image
+                style={{flex: 1, width: 78, height: 43}}
+                source={require('./assets/car-ford-falcon-gear-stick-manual-transmission-car-pieces.jpg')}
+              />
+            </View>
+            <Text style={[styles.fontColorSelected, {alignSelf: 'flex-end'}]}>
+              520 DOP
+            </Text>
           </Card>
         </View>
         <Button
-            buttonStyle={[confirmationStyles.Button, styles.largeButton]}
-            title="Confirmar"
-            titleStyle={[styles.Text, styles.fontSizeTwo]}
-            onPress={this.handleButtonPress}
-          />
+          buttonStyle={[confirmationStyles.Button, styles.largeButton]}
+          title="Confirmar"
+          titleStyle={[styles.Text, styles.fontSizeTwo]}
+          onPress={this.handleButtonPress}
+        />
       </ScrollView>
     );
   }
