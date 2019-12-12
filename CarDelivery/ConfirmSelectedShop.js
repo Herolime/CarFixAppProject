@@ -17,7 +17,7 @@ class ConfirmSelectedShop extends React.Component {
           <TextInput
             style={[
               styles.TextInput,
-              CDStyles.TextInput,
+              styles.defaultShadow,
               {alignSelf: 'center'},
             ]}
             value={this.props.selectedShop}
