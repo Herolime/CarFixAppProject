@@ -75,8 +75,9 @@ class LocateTrailer extends React.Component {
         <TextInput
           style={[
             LocateTrailerStyles.overlay,
-            LocateTrailerStyles.searchInput,
+            styles.TextInput,
             LocateTrailerStyles.top25,
+            {textAlign: 'center'}
           ]}
           value={this.state.searchInputValue}
         />
@@ -129,13 +130,6 @@ const LocateTrailerStyles = StyleSheet.create({
   },
   top25: {
     top: 25,
-  },
-  searchInput: {
-    backgroundColor: '#FFFFFF',
-    height: 60,
-    width: 343,
-    textAlign: 'center',
-    borderRadius: 5,
   },
 });
 
