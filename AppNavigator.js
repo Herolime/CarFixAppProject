@@ -8,6 +8,7 @@ import SelectService from './SelectService';
 import CarDelivery from './CarDelivery/CDMainScreen';
 import OrderConfirmation from './OrderConfirmation';
 import PaymentMethod from './PaymentMethod';
+import OrderSent from './OrderSent';
 
 class MainScreen extends React.Component {
   constructor(props) {
@@ -63,7 +64,15 @@ class ConfirmationScreen extends React.Component {
 
 class PaymentScreen extends React.Component {
   render() {
-    return (<PaymentMethod />);
+    return (
+      <PaymentMethod navigateTo={() => NavigationService.navigate('Ordered')} />
+    );
+  }
+}
+
+class OrderSentScreen extends React.Component {
+  render() {
+    return <OrderSent />;
   }
 }
 
@@ -75,6 +84,7 @@ const AppNavigator = createStackNavigator(
     Delivery: CarDeliveryScreen,
     Confirmation: ConfirmationScreen,
     Payment: PaymentScreen,
+    Ordered: OrderSentScreen,
   },
   {
     initialRouteName: 'Main',

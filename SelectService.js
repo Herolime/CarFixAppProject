@@ -28,11 +28,11 @@ class SelectService extends React.Component {
     };
     this.handlePress = this.handlePress.bind(this);
     this.handleButtonPress = () => {
-      this.state.availableServices.map(serv => {
+      for (let serv of this.state.availableServices) {
         if (serv.selected) {
-          return true;
+          this.props.navigateTo();
         }
-      }) && this.props.navigateTo();
+      }
     };
   }
 

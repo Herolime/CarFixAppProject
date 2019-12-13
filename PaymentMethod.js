@@ -21,6 +21,13 @@ class PaymentMethod extends React.Component {
       methodsLoaded: true,
       securityCheck: 'Codigo de Seguridad',
     };
+    this.handleButtonPress = () => {
+      for (let pm of this.state.paymentMethods) {
+        if (pm.selected) {
+          this.props.navigateTo();
+        }
+      }
+    };
   }
 
   loadMethods() {

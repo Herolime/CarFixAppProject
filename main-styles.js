@@ -24,6 +24,10 @@ const styles = StyleSheet.create({
     width: 343,
     borderRadius: 5,
   },
+  Card: {
+    backgroundColor: '#1D2126',
+    flex: 1,
+  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
