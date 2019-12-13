@@ -24,7 +24,7 @@ class OrderConfirmation extends React.Component {
       <ScrollView style={confirmationStyles.ScrollView}>
         <Card
           title="Confirmacion"
-          containerStyle={confirmationStyles.confirmationCard}
+          containerStyle={styles.Card}
           titleStyle={[styles.fontColorPrincipal, styles.fontSizeTwo]}>
           <Text style={[styles.fontColorSelected, {alignSelf: 'flex-end'}]}>
             Resumen
@@ -63,7 +63,7 @@ class OrderConfirmation extends React.Component {
         </Card>
         <Card
           title={'Estimacion'}
-          containerStyle={confirmationStyles.estimationCard}
+          containerStyle={styles.Card}
           titleStyle={[styles.fontColorPrincipal, styles.fontSizeTwo]}>
           <Text style={styles.fontColorSelected}>
             19 / 12 / 2019 06:50:00 PM en:
@@ -122,14 +122,6 @@ const confirmationStyles = StyleSheet.create({
     flex: 1,
     alignSelf: 'center',
     marginBottom: 10,
-  },
-  confirmationCard: {
-    backgroundColor: '#1D2126',
-    flex: 1,
-  },
-  estimationCard: {
-    backgroundColor: '#1D2126',
-    flex: 1,
   },
   observations: {
     flex: 1,
