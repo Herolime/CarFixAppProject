@@ -64,7 +64,12 @@ class ConfirmationScreen extends React.Component {
 
 class PaymentScreen extends React.Component {
   render() {
-    return (<PaymentMethod />);
+    return (
+      <PaymentMethod navigateTo={() => NavigationService.navigate('Ordered')} />
+    );
+  }
+}
+
 class OrderSentScreen extends React.Component {
   render() {
     return <OrderSent />;
