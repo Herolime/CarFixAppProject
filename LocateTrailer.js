@@ -31,6 +31,23 @@ class LocateTrailer extends React.Component {
   }
 
   handleButtonPress() {
+    fetch('http://10.0.0.45:5000/api/CarShops/')
+      .then(response => response.json())
+      .then(responseJson => {
+        this.setState({
+          ...this.state,
+          nearShops: responseJson.map(shop => {
+            return {
+              id: shop.id,
+              shopName: shop.name,
+              proximity: shop.id,
+            };
+          }),
+        });
+      })
+      .catch(error => {
+        console.error(error);
+      });
     this.setState({
       ...this.state,
       nearShopLoaded: true,
