@@ -56,7 +56,13 @@ class CarDelivery extends React.Component {
 
   handleButtonPress() {
     if (this.state.selectedIndex > 0) {
-      //Logica para comprobar que una fecha de reserva haya sido elegida
+      if (!this.state.reservation.id) {
+        return;
+      }
+      this.props.navigateTo({
+        reservedId: this.state.reservation.id,
+        reserveDate: this.state.reservation.date,
+      });
     }
     this.props.navigateTo();
   }
