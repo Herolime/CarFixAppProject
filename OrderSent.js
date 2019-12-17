@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, TextInput} from 'react-native';
+import {View, Text, StyleSheet,} from 'react-native';
 import styles from './main-styles';
 import {Button, Card, Divider} from 'react-native-elements';
 
