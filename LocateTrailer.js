@@ -20,8 +20,6 @@ class LocateTrailer extends React.Component {
       nearShops: [
         {
           id: 1,
-          image:
-            './assets/car-ford-falcon-gear-stick-manual-transmission-car-pieces.jpg',
           shopName: 'Repuestos Montilla',
           proximity: 1,
         },
