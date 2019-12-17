@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text} from 'react-native';
 import styles from '../main-styles';
 import {Button, ButtonGroup} from 'react-native-elements';
 import ConfirmSelectedShop from './ConfirmSelectedShop';
