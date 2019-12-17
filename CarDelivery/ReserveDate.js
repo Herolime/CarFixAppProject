@@ -28,7 +28,10 @@ class ReserveDate extends React.Component {
           style={[styles.fontColorSecondary, styles.fontSizeTwo, {flex: 2}]}>
           Fecha y Tiempo a Reservar
         </Text>
-        <Picker style={{flex: 8, marginTop: -100}}>
+        <Picker
+          selectedValue={this.state.id}
+          style={{flex: 8, marginTop: -100}}
+          onValueChange={(itemValue, itemIndex) => this.changeReservation(itemValue)}>
           {availableReservations}
         </Picker>
       </View>
