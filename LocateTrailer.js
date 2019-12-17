@@ -48,7 +48,9 @@ class LocateTrailer extends React.Component {
       <TouchableOpacity
         style={LocateTrailerStyles.TouchableOpacity}
         key={shop.id}
-        onPress={this.onHandlePress}>
+        onPress={() => {
+          return this.onHandlePress({id: shop.id, shopName: shop.shopName});
+        }}>
         <Image
           style={{flex: 1, width: 78, height: 43}}
           source={require('./assets/car-ford-falcon-gear-stick-manual-transmission-car-pieces.jpg')}
