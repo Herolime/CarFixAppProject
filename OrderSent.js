@@ -42,6 +42,7 @@ class OrderSent extends React.Component {
             ]}
             title="Revisa el estatus"
             titleStyle={[styles.Text, styles.fontSizeTwo]}
+            onPress={() => this.props.navigateTo()}
           />
           <Button
             buttonStyle={[
