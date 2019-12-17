@@ -34,8 +34,11 @@ target 'CarFixAppProject' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  pod 'react-native-maps', :path => '../node_modules/react-native-maps'
+  # Required by Google Map, ignore if you use Apple Map
+  pod 'GoogleMaps'
 
+  pod 'react-native-maps', :path => '../node_modules/react-native-maps' 
+  pod 'react-native-google-maps', :path => '../node_modules/react-native-maps' 
   target 'CarFixAppProjectTests' do
     inherit! :search_paths
     # Pods for testing
