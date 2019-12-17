@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text} from 'react-native';
 import styles from '../main-styles';
 import {Button, ButtonGroup} from 'react-native-elements';
 import ConfirmSelectedShop from './ConfirmSelectedShop';
@@ -12,10 +12,12 @@ class CarDelivery extends React.Component {
     this.state = {
       selectedIndex: 0,
       availableDates: [],
+      reservation: {},
     };
     this.handleGroupPress = this.handleGroupPress.bind(this);
     this.getDates = this.getDates.bind(this);
     this.handleButtonPress = this.handleButtonPress.bind(this);
+    this.setReservation = this.setReservation.bind(this);
   }
 
   handleGroupPress(index) {
@@ -30,35 +32,52 @@ class CarDelivery extends React.Component {
   }
 
   getDates(index) {
-    this.setState({
-      selectedIndex: index,
-      availableDates: [
-        {
-          id: 1,
-          date: '18/12/19 | 9:00 AM',
-        },
-        {
-          id: 2,
-          date: '18/12/19 | 10:00 AM',
-        },
-        {
-          id: 3,
-          date: '18/12/19 | 11:00 AM',
-        },
-      ],
-    });
+    const shopId = this.props.navigationProps('selectedId');
+    fetch(`http://10.0.0.45:5000/api/CarShops/${shopId}/Dates`)
+      .then(response => response.json())
+      .then(dates => {
+        this.setState({
+          ...this.state,
+          selectedIndex: index,
+          availableDates: dates.map(d => {
+            const dated = new Date(d.date);
+            return {
+              id: d.id,
+              date: `${dated.getUTCDate()}/${dated.getUTCMonth()}/${dated.getUTCFullYear()} | ${dated.getHours()}:${
+                dated.getUTCMinutes() === 0 ? '00' : dated.getUTCMinutes()}`,
+            };
+          }),
+        });
+      })
+      .catch(err => {
+        console.error(err);
+      });
   }
 
   handleButtonPress() {
     if (this.state.selectedIndex > 0) {
-      //Logica para comprobar que una fecha de reserva haya sido elegida
+      if (!this.state.reservation.id) {
+        return;
+      }
+      this.props.navigateTo({
+        reservedId: this.state.reservation.id,
+        reserveDate: this.state.reservation.date,
+      });
     }
     this.props.navigateTo();
+  }
+
+  setReservation(reservation) {
+    this.setState({...this.state, reservation: reservation});
   }
 
   render() {
     const buttons = [entregaInmediata, entregaReservada];
     const selectedIndex = this.state.selectedIndex;
+    let selectedReservation =
+      this.state.availableDates.length != 0
+        ? this.state.availableDates[0]
+        : {id: 0, date: ''};
     return (
       <View style={{flex: 1}}>
         <View style={CDStyles.OuterSection}>
@@ -76,11 +95,15 @@ class CarDelivery extends React.Component {
         </View>
         <View style={CDStyles.InnerSection}>
           <ConfirmSelectedShop
-            selectedShop={'Taller Seleccionado'}
+            selectedShop={this.props.navigationProps('selectedTrailer')}
             titleFlexValue={selectedIndex + (selectedIndex > 0 ? 2 : 0.8)}
           />
           {selectedIndex === 1 && (
-            <ReserveDate availableDates={this.state.availableDates} />
+            <ReserveDate
+              availableDates={this.state.availableDates}
+              selectedDate={selectedReservation}
+              setReservation={res => this.setReservation(res)}
+            />
           )}
         </View>
         <View style={{alignItems: 'center', flex: 3}}>
@@ -88,7 +111,7 @@ class CarDelivery extends React.Component {
             buttonStyle={[styles.largeButton, {backgroundColor: '#FE9E1C'}]}
             title="Confirmar"
             titleStyle={[styles.Text, styles.fontSizeTwo]}
-            onPress={this.handleButtonPress}
+            onPress={() => {return this.handleButtonPress()}}
           />
         </View>
       </View>
