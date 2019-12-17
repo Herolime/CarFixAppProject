@@ -66,9 +66,11 @@ class OrderConfirmation extends React.Component {
           containerStyle={styles.Card}
           titleStyle={[styles.fontColorPrincipal, styles.fontSizeTwo]}>
           <Text style={styles.fontColorSelected}>
-            19 / 12 / 2019 06:50:00 PM en:
+            {this.props.navigationProps('reserveDate')} en:
           </Text>
-          <Text style={styles.fontColorPrincipal}>Taller Seleccionado</Text>
+          <Text style={styles.fontColorPrincipal}>
+            {this.props.navigationProps('selectedTrailer')}
+          </Text>
         </Card>
         <View style={confirmationStyles.observations}>
           <Text style={[styles.fontSizeTwo]}> Observaciones </Text>
@@ -87,7 +89,7 @@ class OrderConfirmation extends React.Component {
             containerStyle={
               (confirmationStyles.serviceDetail, styles.defaultShadow)
             }>
-            <Text> Mantenimiento regular </Text>
+            <Text> {this.props.navigationProps('selectedService')} </Text>
             <View style={{flexDirection: 'row-reverse', flex: 1, margin: 10}}>
               <View style={{flex: 1, flexDirection: 'column'}}>
                 <Text>Detalles del Servicio</Text>
