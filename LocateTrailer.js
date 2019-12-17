@@ -27,7 +27,7 @@ class LocateTrailer extends React.Component {
       nearShopLoaded: false,
     };
     this.handleButtonPress = this.handleButtonPress.bind(this);
-    this.onHandlePress = this.props.onHandlePress;
+    this.onHandlePress = this.onHandlePress.bind(this);
   }
 
   handleButtonPress() {
@@ -36,7 +36,13 @@ class LocateTrailer extends React.Component {
       nearShopLoaded: true,
     });
   }
-
+  onHandlePress(trailer) {
+    this.state.nearShopLoaded &&
+      this.props.onHandlePress({
+        selectedId: trailer.id,
+        selectedTrailer: trailer.shopName,
+      });
+  }
   render() {
     const shopsNearby = this.state.nearShops.map(shop => (
       <TouchableOpacity
