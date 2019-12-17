@@ -68,6 +68,10 @@ class CarDelivery extends React.Component {
   render() {
     const buttons = [entregaInmediata, entregaReservada];
     const selectedIndex = this.state.selectedIndex;
+    let selectedReservation =
+      this.state.availableDates.length != 0
+        ? this.state.availableDates[0]
+        : {id: 0, date: ''};
     return (
       <View style={{flex: 1}}>
         <View style={CDStyles.OuterSection}>
@@ -85,11 +89,15 @@ class CarDelivery extends React.Component {
         </View>
         <View style={CDStyles.InnerSection}>
           <ConfirmSelectedShop
-            selectedShop={'Taller Seleccionado'}
+            selectedShop={this.props.navigationProps('selectedTrailer')}
             titleFlexValue={selectedIndex + (selectedIndex > 0 ? 2 : 0.8)}
           />
           {selectedIndex === 1 && (
-            <ReserveDate availableDates={this.state.availableDates} />
+            <ReserveDate
+              availableDates={this.state.availableDates}
+              selectedDate={selectedReservation}
+              setReservation={res => this.setReservation(res)}
+            />
           )}
         </View>
         <View style={{alignItems: 'center', flex: 3}}>
@@ -97,7 +105,7 @@ class CarDelivery extends React.Component {
             buttonStyle={[styles.largeButton, {backgroundColor: '#FE9E1C'}]}
             title="Confirmar"
             titleStyle={[styles.Text, styles.fontSizeTwo]}
-            onPress={this.handleButtonPress}
+            onPress={() => {return this.handleButtonPress()}}
           />
         </View>
       </View>
