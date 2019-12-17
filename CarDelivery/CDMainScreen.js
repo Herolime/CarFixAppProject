@@ -30,23 +30,26 @@ class CarDelivery extends React.Component {
   }
 
   getDates(index) {
-    this.setState({
-      selectedIndex: index,
-      availableDates: [
-        {
-          id: 1,
-          date: '18/12/19 | 9:00 AM',
-        },
-        {
-          id: 2,
-          date: '18/12/19 | 10:00 AM',
-        },
-        {
-          id: 3,
-          date: '18/12/19 | 11:00 AM',
-        },
-      ],
-    });
+    const shopId = this.props.navigationProps('selectedId');
+    fetch(`http://10.0.0.45:5000/api/CarShops/${shopId}/Dates`)
+      .then(response => response.json())
+      .then(dates => {
+        this.setState({
+          ...this.state,
+          selectedIndex: index,
+          availableDates: dates.map(d => {
+            const dated = new Date(d.date);
+            return {
+              id: d.id,
+              date: `${dated.getUTCDate()}/${dated.getUTCMonth()}/${dated.getUTCFullYear()} | ${dated.getHours()}:${
+                dated.getUTCMinutes() === 0 ? '00' : dated.getUTCMinutes()}`,
+            };
+          }),
+        });
+      })
+      .catch(err => {
+        console.error(err);
+      });
   }
 
   handleButtonPress() {
