@@ -24,7 +24,22 @@ class PaymentMethod extends React.Component {
     this.handleButtonPress = () => {
       for (let pm of this.state.paymentMethods) {
         if (pm.selected) {
-          this.props.navigateTo();
+          if (!!this.props.navigationProps('reservedId')) {
+            fetch(
+              `http://10.0.0.45:5000/api/Dates/${this.props.navigationProps(
+                'reservedId',
+              )}/Reserved`,
+              {method: 'PUT'},
+            )
+              .then(res => {
+                this.props.navigateTo({paymentMethod: pm.name});
+              })
+              .catch(err => {
+                console.error(err);
+              });
+          } else {
+            this.props.navigateTo({paymentMethod: pm.name});
+          }
         }
       }
     };
