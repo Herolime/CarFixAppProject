@@ -20,8 +20,6 @@ class LocateTrailer extends React.Component {
       nearShops: [
         {
           id: 1,
-          image:
-            './assets/car-ford-falcon-gear-stick-manual-transmission-car-pieces.jpg',
           shopName: 'Repuestos Montilla',
           proximity: 1,
         },
@@ -29,22 +27,47 @@ class LocateTrailer extends React.Component {
       nearShopLoaded: false,
     };
     this.handleButtonPress = this.handleButtonPress.bind(this);
-    this.onHandlePress = this.props.onHandlePress;
+    this.onHandlePress = this.onHandlePress.bind(this);
   }
 
   handleButtonPress() {
+    fetch('http://10.0.0.45:5000/api/CarShops/')
+      .then(response => response.json())
+      .then(responseJson => {
+        this.setState({
+          ...this.state,
+          nearShops: responseJson.map(shop => {
+            return {
+              id: shop.id,
+              shopName: shop.name,
+              proximity: shop.id,
+            };
+          }),
+        });
+      })
+      .catch(error => {
+        console.error(error);
+      });
     this.setState({
       ...this.state,
       nearShopLoaded: true,
     });
   }
-
+  onHandlePress(trailer) {
+    this.state.nearShopLoaded &&
+      this.props.onHandlePress({
+        selectedId: trailer.id,
+        selectedTrailer: trailer.shopName,
+      });
+  }
   render() {
     const shopsNearby = this.state.nearShops.map(shop => (
       <TouchableOpacity
         style={LocateTrailerStyles.TouchableOpacity}
         key={shop.id}
-        onPress={this.onHandlePress}>
+        onPress={() => {
+          return this.onHandlePress({id: shop.id, shopName: shop.shopName});
+        }}>
         <Image
           style={{flex: 1, width: 78, height: 43}}
           source={require('./assets/car-ford-falcon-gear-stick-manual-transmission-car-pieces.jpg')}
