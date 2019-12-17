@@ -63,6 +63,7 @@ class LocateTrailer extends React.Component {
     return (
       <View style={LocateTrailerStyles.View}>
         <MapView
+          provider="google"
           style={[LocateTrailerStyles.MapView, {zIndex: 0}]}
           region={{
             latitude: 42.882004,
