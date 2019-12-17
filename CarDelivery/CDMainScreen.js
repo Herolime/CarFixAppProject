@@ -12,10 +12,12 @@ class CarDelivery extends React.Component {
     this.state = {
       selectedIndex: 0,
       availableDates: [],
+      reservation: {},
     };
     this.handleGroupPress = this.handleGroupPress.bind(this);
     this.getDates = this.getDates.bind(this);
     this.handleButtonPress = this.handleButtonPress.bind(this);
+    this.setReservation = this.setReservation.bind(this);
   }
 
   handleGroupPress(index) {
@@ -57,6 +59,10 @@ class CarDelivery extends React.Component {
       //Logica para comprobar que una fecha de reserva haya sido elegida
     }
     this.props.navigateTo();
+  }
+
+  setReservation(reservation) {
+    this.setState({...this.state, reservation: reservation});
   }
 
   render() {
