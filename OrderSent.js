@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, TextInput} from 'react-native';
+import {View, Text, StyleSheet,} from 'react-native';
 import styles from './main-styles';
 import {Button, Card, Divider} from 'react-native-elements';
 
@@ -13,7 +13,7 @@ class OrderSent extends React.Component {
           containerStyle={[styles.Card, {flex: 0.8}]}>
           <View>
             <Text style={styles.fontColorSelected}>
-              Pagado mediante forma de pago
+              Pagado mediante {this.props.navigationProps('paymentMethod')}
             </Text>
             <Text style={styles.fontColorPrincipal}>
               Numero de Orden: 33701
@@ -24,14 +24,15 @@ class OrderSent extends React.Component {
           <View style={{backgroundColor: '1C272E'}}>
             <Text style={styles.fontColorPrincipal}> Reservada Para el: </Text>
             <Text style={styles.fontColorSelected}>
-              19 / 12 / 2019 a las 06:50:00 PM
+              {this.props.navigationProps('reserveDate')}
             </Text>
-            <Text style={styles.fontColorPrincipal}> en Taller Reservado </Text>
+            <Text style={styles.fontColorPrincipal}>
+              en {this.props.navigationProps('selectedTrailer')}
+            </Text>
           </View>
         </Card>
         <Text style={[styles.fontColorSecondary, {flex: 1, margin: 15}]}>
-          {' '}
-          Te hemos enviada un email de confirmación con tu orden{' '}
+          Te hemos enviada un email de confirmación con tu orden
         </Text>
         <View style={{flex: 1, selfAlign: 'flex-end', alignItems: 'center'}}>
           <Button
@@ -41,6 +42,7 @@ class OrderSent extends React.Component {
             ]}
             title="Revisa el estatus"
             titleStyle={[styles.Text, styles.fontSizeTwo]}
+            onPress={() => this.props.navigateTo()}
           />
           <Button
             buttonStyle={[
