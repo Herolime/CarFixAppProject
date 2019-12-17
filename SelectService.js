@@ -30,7 +30,7 @@ class SelectService extends React.Component {
     this.handleButtonPress = () => {
       for (let serv of this.state.availableServices) {
         if (serv.selected) {
-          this.props.navigateTo();
+          this.props.navigateTo({selectedService: serv.typeOfService});
         }
       }
     };
