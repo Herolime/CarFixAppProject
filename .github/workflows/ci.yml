@@ -38,7 +38,7 @@ jobs:
   
     - name: Pull of Heroku
       run: |
-        git pull heroku master
+        git pull heroku
 
     - name: Deploy to Heroku
       run: |
