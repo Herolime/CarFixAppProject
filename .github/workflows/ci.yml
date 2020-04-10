@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - EXP-Fixing-CI
 
 jobs:
   build:
